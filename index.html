@@ -110,6 +110,8 @@
       .header-strip {
         flex-direction: column;
         gap: 2px;
+        width: 91%;   /* or 50%, 70% depending on need */
+margin: 0 auto; /* centers it */
       }
 
       .header-strip .block {
@@ -136,8 +138,11 @@
 
       /* LABEL */
       .header-strip-row strong {
-        font-size: 10pt;
+        font-size: 20pt;
         margin-right: 6px;
+      }
+      .header-strip-row{
+        font-size: 20pt;
       }
 
       /* CONTENT GROUP */
@@ -226,47 +231,71 @@
       /* ───────── OVERVIEW SECTION (MODERN FIX) ───────── */
 
       /* ===== OVERVIEW (A1 OPTIMIZED STRIP) ===== */
-        .overview {
-        display: grid;
-        grid-template-columns: repeat(4, 1fr);
+      .overview {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 10px;
+    padding: 8px 10px;
+    margin: 6px 0;
+    background: transparent;
+}
 
-        gap: 8px;
+/* CARD BASE */
+.ov-card {
+    border-radius: 12px;
+    padding: 10px;
 
-        padding: 8px 10px;
-        margin: 6px 0;
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
 
-        background: transparent; /* keep blue from body */
-        }
+    min-height: 75px;
 
-        /* CARD */
-        .ov-card {
-        background: linear-gradient(135deg, #ffffff, #f8fafc);
+    box-shadow: 0 3px 10px rgba(0,0,0,0.06);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
 
-        border-radius: 10px;
-        padding: 8px;
+/* subtle hover (optional but nice) */
+.ov-card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 14px rgba(0,0,0,0.08);
+}
 
-        display: flex;
-        flex-direction: column;
-        gap: 4px;
+/* DIFFERENT SMOOTH BACKGROUNDS */
 
-        min-height: 70px; /* 🔥 compact but readable */
+/* Card 1 – Soft Blue */
+.ov-card:nth-child(1) {
+    background: linear-gradient(135deg, #eef5ff, #dbeafe);
+}
 
-        box-shadow: 0 2px 8px rgba(0,0,0,0.08);
-        }
+/* Card 2 – Soft Green */
+.ov-card:nth-child(2) {
+    background: linear-gradient(135deg, #ecfdf5, #d1fae5);
+}
 
-        /* LABEL */
-        .ov-label {
-        font-size: 8pt;
-        font-weight: 700;
-        color: #1a4f8a;
-        }
+/* Card 3 – Soft Purple */
+.ov-card:nth-child(3) {
+    background: linear-gradient(135deg, #f5f3ff, #e9d5ff);
+}
 
-        /* CONTENT */
-        .ov-content {
-        font-size: 7.2pt;
-        line-height: 1.35;
-        color: #374151;
-        }
+/* Card 4 – Soft Orange */
+.ov-card:nth-child(4) {
+    background: linear-gradient(135deg, #fff7ed, #fed7aa);
+}
+
+/* LABEL */
+.ov-label {
+    font-size: 8pt;
+    font-weight: 700;
+    color: #1a4f8a;
+}
+
+/* CONTENT */
+.ov-content {
+    font-size: 10pt;
+    line-height: 1.4;
+    color: #374151;
+}
       /* OVERVIEW css ends here */
 
       /* ─── MAIN BODY ───────────────────────────────────────── */
@@ -492,7 +521,86 @@
         .ds-grow {
         flex-grow: 1;
         }
+
+
+        .footer {
+        margin-top: 8px;
+        padding: 10px 14px;
+
+        border-radius: 10px;
+        background: linear-gradient(135deg, #1a4f8a, #1e3a8a, #172554);
+
+        color: #e5e7eb;
+
+        display: flex;
+        flex-direction: column;
+        gap: 8px;
+
+        font-size: 7.5pt;
+        line-height: 1.4;
+
+        box-shadow: 0 4px 14px rgba(0,0,0,0.15);
+        }
+
+        /* TOP GRID */
+        .footer-top {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1.2fr;
+            gap: 14px;
+        }
+
+        /* SECTIONS */
+        .footer-section {
+            display: flex;
+            flex-direction: column;
+            gap: 3px;
+        }
+
+        .footer-title {
+            font-size: 8pt;
+            font-weight: 700;
+            color: #facc15;
+        }
+
+        .footer-text {
+            opacity: 0.9;
+        }
+
+        /* SEPARATORS */
+        .footer-section:not(:last-child) {
+            border-right: 1px solid rgba(255,255,255,0.15);
+            padding-right: 10px;
+        }
+
+        /* METRICS BAR */
+        .footer-metrics {
+            display: flex;
+            justify-content: space-between;
+
+            padding-top: 6px;
+            border-top: 1px solid rgba(255,255,255,0.2);
+
+            font-size: 7pt;
+            opacity: 0.95;
+        }
+
+        /* PIPELINE */
+        .footer-pipeline {
+            text-align: center;
+            font-size: 7pt;
+            opacity: 0.85;
+        }
+
+        /* CONCLUSION */
+        .footer-conclusion {
+            font-size: 7.2pt;
+            line-height: 1.3;
+
+            padding-top: 4px;
+            border-top: 1px dashed rgba(255,255,255,0.2);
+        }
     </style>
+
   </head>
   <script>
     function printPoster() {
@@ -516,8 +624,8 @@
         <div
           class="logo"
           style="
-            width: 100px;
-            height: 100px;
+            width: 200px;
+            height: 200px;
             display: flex;
             align-items: center;
             justify-content: center;
@@ -554,16 +662,16 @@
                   krishnapalsonaniyasgsits@gmail.com)</span
                 >
                 |
-                <span>Piyush Soni (0801IT231092 / piyushsoni@gmail.com)</span> |
-                <span>Mohit Yadav (0801IT231079 / mohityadav@gmail.com)</span>
+                <span>Piyush Soni (0801IT231092 / piyushsoni8839@gmail.com)</span> |
+                <span>Mohit Yadav (0801IT231079 / yadavmohit231079@gmail.com)</span>
               </div>
             </div>
             <div class="header-strip-row">
               <div>
                 <strong>Mentor:</strong>
-                <span>Dr. K.K. Sharma</span>
-                <span>Dr. Lalit Purohit</span>
-                <span>Dr. Upendra Singh</span>
+                <span>Dr. K.K. Sharma | </span>
+                <span>Dr. Lalit Purohit | </span>
+                <span>Dr. Upendra Singh | </span>
                 <span>Mr. Akshay Gupta</span>
               </div>
             </div>
@@ -577,28 +685,28 @@
         <section class="overview">
 
         <div class="ov-card">
-            <div class="ov-label">🎯 Objective</div>
+            <div class="ov-label"> Objective</div>
             <div class="ov-content">
             Design and implement a unified multi-modal machine learning framework capable of handling Image, Text, Numeric, Audio, and Video data. The system aims to apply modality-specific preprocessing and model selection to achieve high accuracy while maintaining scalability and real-world usability.
             </div>
         </div>
 
         <div class="ov-card">
-            <div class="ov-label">🔬 Methodology</div>
+            <div class="ov-label"> Methodology</div>
             <div class="ov-content">
             Each modality follows a dedicated pipeline: data ingestion → preprocessing (TF-IDF, MFCC, frame extraction, scaling) → feature transformation → model training → evaluation → best model selection. The final system integrates all pipelines into a single interface for consistent and efficient inference.
             </div>
         </div>
 
         <div class="ov-card">
-            <div class="ov-label">🧠 Models Used</div>
+            <div class="ov-label"> Models Used</div>
             <div class="ov-content">
             A variety of models were selected based on data characteristics, including CNN and MobileNetV2 for images and video, SVM and Logistic Regression for text and numeric data, and LSTM-based architectures for sequential learning. Each model was optimized using appropriate preprocessing techniques.
             </div>
         </div>
 
         <div class="ov-card">
-            <div class="ov-label">🏆 Key Results</div>
+            <div class="ov-label"> Key Results</div>
             <div class="ov-content">
             The framework achieved strong performance across all modalities, with highest accuracy in numeric classification (97.5%) and consistently high results in text, audio, and video tasks. The study demonstrates that modality-specific model selection significantly improves performance over a generalized approach.
             </div>
@@ -1215,7 +1323,61 @@
         </div>
 
 
-    
+ <div class="footer">
+
+    <!-- TOP ROW -->
+    <div class="footer-top">
+        
+        <div class="footer-section refs">
+            <div class="footer-title">References</div>
+            <div class="footer-text">
+                IMDB (2011) • RAVDESS (2018) • UCF101 (2012) • 
+                Chest X-ray (2018) • Mobile Price Dataset (Kaggle)
+            </div>
+        </div>
+
+        <div class="footer-section tech">
+            <div class="footer-title">Technologies</div>
+            <div class="footer-text">
+                Python • TensorFlow • Keras • Scikit-learn • OpenCV • Librosa • XGBoost
+            </div>
+        </div>
+
+        <div class="footer-section ack">
+            <div class="footer-title">Acknowledgment</div>
+            <div class="footer-text">
+                We sincerely thank the Information Technology Department and faculty at SGSITS 
+                for their guidance, support, and encouragement throughout this project.
+            </div>
+        </div>
+
+    </div>
+
+    <!-- PERFORMANCE METRICS -->
+    <div class="footer-metrics">
+        <div><strong>Image:</strong> 88%</div>
+        <div><strong>Text:</strong> 91.5%</div>
+        <div><strong>Numeric:</strong> 97.5%</div>
+        <div><strong>Audio:</strong> 93.1%</div>
+        <div><strong>Video:</strong> ~90%</div>
+    </div>
+
+    <!-- PIPELINE -->
+    <div class="footer-pipeline">
+        Data → Preprocessing → Feature Extraction → Model Training → Evaluation → Deployment
+    </div>
+
+    <!-- CONCLUSION -->
+    <div class="footer-conclusion">
+        <strong>Conclusion:</strong> The proposed multi-modal machine learning framework demonstrates 
+        that modality-specific model selection significantly improves accuracy, scalability, and 
+        real-world applicability across diverse data types.
+    </div>
+
+</div>
+ 
+
+</div>
     </div>
   </body>
 </html>
